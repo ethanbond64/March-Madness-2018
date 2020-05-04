@@ -2,7 +2,7 @@ import csv
 import os
 rankReference = []
 Bests = []
-with open('APfullstats2.csv','r') as filegreader:
+with open('APfullstats.csv','r') as filegreader:
     filegreader = csv.reader(filegreader, delimiter=',', quotechar='|')
     for grow in filegreader:
         if len(grow) > 0:
@@ -18,36 +18,6 @@ with open('APfullstats.csv', 'r') as original:
             rank = int(row[0])
 
             name = row[2]
-
-            # home = row[7]
-            # homeFirst = ''
-            # homeSecond = ''
-            # for ii in range(len(home)):
-            #     if home[ii] == '-':
-            #         for kk in range(ii+1,len(home)):
-            #             homeSecond += home[kk]
-            #         break
-            #     homeFirst += home[ii]
-            # #Loss Unexpected Home
-            # LUH = int(homeSecond) / (int(homeSecond)+int(homeFirst))
-            # WEH = int(homeFirst) / (int(homeSecond)+int(homeFirst))
-            #
-            # road = row[5]
-            # roadFirst = ''
-            # roadSecond = ''
-            # for ii in range(len(road)):
-            #     if road[ii] == '-':
-            #         for kk in range(ii+1,len(road)):
-            #             roadSecond += road[kk]
-            #         break
-            #     roadFirst += road[ii]
-            #
-            # neutral = row[6]
-            # neutralFirst = neutral[0]
-            # neutralSecond = neutral[2]
-            # #Win Unexpected Road
-            # WUR = (int(roadFirst)+int(neutralFirst))/(int(roadFirst)+int(neutralFirst)+int(roadSecond)+int(neutralSecond))
-            # LER = (int(roadSecond)+int(neutralSecond))/(int(roadFirst)+int(neutralFirst)+int(roadSecond)+int(neutralSecond))
 
             bigOffense = 0
             bigDefense = 0

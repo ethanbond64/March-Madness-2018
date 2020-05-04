@@ -7,8 +7,8 @@ playIn = []
 for game in range(0,8,2):
     team1 = playIns[game]
     team2 = playIns[game+1]
-    # with open('APNewRankFilter.csv','r') as file:
-    with open('APNewRankFilter.csv','r') as file:
+    # with open('APRankOnlyFilteredStats.csv','r') as file:
+    with open('APRankOnlyFilteredStats.csv','r') as file:
         filereader = csv.reader(file, delimiter=',', quotechar='|')
         for row in filereader:
             if len(row) > 0:
@@ -24,8 +24,7 @@ for game in range(0,8,2):
         Ateam = team1
         Bteam = team2
     playIn.append(playGame(Ateam,Bteam))
-# print('Play In Round Winners')
-# print(playIn)
+
 
 Tournament = ['Duke','North Dakota St','VCU','UCF','Mississippi St','Liberty','Virginia Tech',\
 'Saint Louis','Maryland','Belmont','LSU','Yale','Louisville','Minnesota','Michigan St',\
@@ -41,7 +40,7 @@ Round1 = []
 for game in range(0,64,2):
     team1 = Tournament[game]
     team2 = Tournament[game+1]
-    with open('APNewRankFilter.csv','r') as file:
+    with open('APRankOnlyFilteredStats.csv','r') as file:
         filereader = csv.reader(file, delimiter=',', quotechar='|')
         for row in filereader:
             if len(row) > 0:
@@ -64,7 +63,7 @@ Round2 = []
 for game in range(0,32,2):
     team1 = Round1[game]
     team2 = Round1[game+1]
-    with open('APNewRankFilter.csv','r') as file:
+    with open('APRankOnlyFilteredStats.csv','r') as file:
         filereader = csv.reader(file, delimiter=',', quotechar='|')
         for row in filereader:
             if len(row) > 0:
@@ -87,7 +86,7 @@ Round3 = []
 for game in range(0,16,2):
     team1 = Round2[game]
     team2 = Round2[game+1]
-    with open('APNewRankFilter.csv','r') as file:
+    with open('APRankOnlyFilteredStats.csv','r') as file:
         filereader = csv.reader(file, delimiter=',', quotechar='|')
         for row in filereader:
             if len(row) > 0:
@@ -110,7 +109,7 @@ Round4 = []
 for game in range(0,8,2):
     team1 = Round3[game]
     team2 = Round3[game+1]
-    with open('APNewRankFilter.csv','r') as file:
+    with open('APRankOnlyFilteredStats.csv','r') as file:
         filereader = csv.reader(file, delimiter=',', quotechar='|')
         for row in filereader:
             if len(row) > 0:
@@ -134,7 +133,7 @@ Round5 = []
 for game in range(0,4,2):
     team1 = Round4[game]
     team2 = Round4[game+1]
-    with open('APNewRankFilter.csv','r') as file:
+    with open('APRankOnlyFilteredStats.csv','r') as file:
         filereader = csv.reader(file, delimiter=',', quotechar='|')
         for row in filereader:
             if len(row) > 0:
@@ -155,7 +154,7 @@ print(Round5)
 
 team1 = Round5[0]
 team2 = Round5[1]
-with open('APNewRankFilter.csv','r') as file:
+with open('APRankOnlyFilteredStats.csv','r') as file:
     filereader = csv.reader(file, delimiter=',', quotechar='|')
     for row in filereader:
         if len(row) > 0:
