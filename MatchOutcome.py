@@ -23,9 +23,9 @@ def playGame(Ateam,Bteam):
 
     if Afavor > Bfavor:
         winner = Ateam
-        print(Afavor/Bfavor)
+        # print(Afavor/Bfavor)
     if Afavor < Bfavor:
         winner = Bteam
-        print(Bfavor/Afavor)
+        # print(Bfavor/Afavor)
 
     return winner

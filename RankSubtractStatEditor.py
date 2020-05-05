@@ -26,7 +26,7 @@ with open('APfullstats.csv', 'r') as original:
             LoseEX = 0
             WinU = 0
             LoseU = 0
-            teamcsv = 'Team Data\\' + name + '.csv'
+            teamcsv = 'Team Data/' + name + '.csv'
             #Use other files to calculate when an upset occurs in favor out out of favor
             if os.path.isfile(teamcsv) == True:
                 with open(teamcsv,'r') as readme:
@@ -51,7 +51,7 @@ with open('APfullstats.csv', 'r') as original:
                                 else:
                                     opponentRank = 400
 
-                            #########################
+                            ############create the stats#############
                             if opponentRank > rank and rank != 400:#away == False
                                 if outcome == 'W':
                                     WinEX += (1/rank) - (1/opponentRank)
@@ -66,12 +66,13 @@ with open('APfullstats.csv', 'r') as original:
                                 pass
 
             newstats = [rank,name,WinEX,LoseEX,WinU,LoseU]
+            # print(newstats)
 
-            with open('APRankOnlyFilteredStats.csv','a') as latest:
+            with open('APRankOnlyFilteredStats2.csv','a') as latest:
                 filewriter = csv.writer(latest, delimiter=',')
                 if newstats[2] != 0 or newstats[3] != 0 or newstats[4] != 0 or newstats[5] != 0 :
                     filewriter.writerow(newstats)
 
             if LoseU != 0 and LoseEX != 0:
                 myRank = (WinEX+WinU)/(LoseEX+LoseU)
-            print(rank,name)
+            # print(rank,name)
