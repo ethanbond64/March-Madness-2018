@@ -64,6 +64,7 @@ for t in Tournament:
 
 #######################
 x = 64
+total_correct = 0
 for round_no in range(1,8):
 
     # get name of the round
@@ -74,6 +75,9 @@ for round_no in range(1,8):
     print()
     if round_no == 7:
         print('The winner you chose is',toPrint[0])
+        print('Over the course of the tournament, you would have correctly guessed:')
+        print(round(100*(total_correct/64),2),'% of games')
+        print('Which is ',total_correct,'games')
         break
 
     print('Teams Still Alive:')
@@ -111,7 +115,19 @@ Which statistic would you use to predict the outcome of this round?
         NextRound.append(winner_id)
         toPrint.append(winner_name)
 
-    print('Your accuracy this round: ')
+    # for teams in next round, get their data on round they went to 
+    n_correct = 0
+    m_games = 0
+    for team_id in NextRound:
+        query = "SELECT round_id FROM round_team_xref WHERE team_id = %s;"
+        cursor.execute(query,  (team_id,))
+        results = cursor.fetchall()[0]
+        if round_no < results[0]:
+            n_correct += 1
+        m_games += 1
+    total_correct += n_correct
+    print('Your accuracy this round:',n_correct/m_games)
+    print('You would have correctly predicted',n_correct,'games')
     print('-----------------------------------------------------------------------')
     Round = NextRound
     x = int(x/2)

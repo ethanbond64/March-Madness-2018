@@ -8,7 +8,7 @@ db.autocommit = True
 cursor = db.cursor()
 
 # TABLE TEAM
-cursor.execute("DROP TABLE team;")
+cursor.execute("DROP TABLE team CASCADE;")
 db.commit()
 cursor.execute(
     "CREATE TABLE IF NOT EXISTS team (id INTEGER PRIMARY KEY, rank INTEGER, name TEXT, conference TEXT, record FLOAT(24), away_record FLOAT(24), tournament_record FLOAT(24), home_record FLOAT(24));")
@@ -33,7 +33,7 @@ with open('dbStats.csv', 'r') as csvfile:
     csvfile.close()
 
 # TABLE ROUND
-cursor.execute("DROP TABLE round;")
+cursor.execute("DROP TABLE round CASCADE;")
 db.commit()
 cursor.execute(
     "CREATE TABLE IF NOT EXISTS round (id INTEGER PRIMARY KEY, name TEXT);")
