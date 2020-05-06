@@ -102,7 +102,7 @@ Which statistic would you use to predict the outcome of this round?
             e = int(e)
             if e < 8 and e > 0:
                 break
-            print('Pleas input a valid character')
+            print('Please input a valid character')
         except:
             print('Please input a valid character')   
   
@@ -126,7 +126,7 @@ Which statistic would you use to predict the outcome of this round?
             n_correct += 1
         m_games += 1
     total_correct += n_correct
-    print('Your accuracy this round:',n_correct/m_games)
+    print('Your accuracy this round:',round(100*(n_correct/m_games),2),'%')
     print('You would have correctly predicted',n_correct,'games')
     print('-----------------------------------------------------------------------')
     Round = NextRound
